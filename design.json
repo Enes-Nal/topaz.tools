@@ -1,0 +1,138 @@
+{
+    "theme": {
+      "mode": "dark",
+      "switching": "auto-enabled (follows system preference)",
+      "background": "#000000",
+      "textColor": "#ffffff",
+      "secondaryTextColor": "#999999",
+      "highlightColor": "#ffffff",
+      "iconColor": "#ffffff",
+      "accentColor": "#c084fc",
+      "accentDescription": "soft purple",
+      "linkColor": "#ffffff",
+      "hoverColor": "#1a1a1a",
+      "borderColor": "#333333"
+    },
+    "typography": {
+      "fontFamily": "'IBM Plex Mono', monospace",
+      "fontSize": {
+        "base": "14px",
+        "small": "12px",
+        "large": "16px"
+      },
+      "fontWeight": {
+        "normal": 400,
+        "bold": 600
+      },
+      "lineHeight": "1.5"
+    },
+    "spacing": {
+      "padding": {
+        "sm": "4px",
+        "md": "8px",
+        "lg": "16px"
+      },
+      "margin": {
+        "sm": "4px",
+        "md": "8px",
+        "lg": "16px"
+      },
+      "sectionGap": "24px"
+    },
+    "layout": {
+      "sidebar": {
+        "width": "220px",
+        "background": "#0d0d0d",
+        "borderRight": "1px solid #1e1e1e",
+        "iconSize": "18px",
+        "iconSpacing": "12px"
+      },
+      "content": {
+        "maxWidth": "900px",
+        "centered": true,
+        "padding": "32px"
+      }
+    },
+    "buttons": {
+      "borderRadius": "8px",
+      "padding": "8px 16px",
+      "fontSize": "14px",
+      "hoverEffect": {
+        "transition": "0.2s ease",
+        "backgroundHover": "#1f1f1f",
+        "scale": "none"
+      },
+      "primary": {
+        "background": "#c084fc",
+        "color": "#000000"
+      },
+      "secondary": {
+        "background": "transparent",
+        "border": "1px solid #ffffff",
+        "color": "#ffffff"
+      }
+    },
+    "input": {
+      "background": "#1a1a1a",
+      "color": "#ffffff",
+      "borderRadius": "6px",
+      "padding": "8px 12px",
+      "placeholderColor": "#666666",
+      "focus": {
+        "outline": "none",
+        "borderColor": "#c084fc"
+      }
+    },
+    "toggles": {
+      "style": "rounded",
+      "background": "#333333",
+      "thumbColor": "#ffffff",
+      "activeBackground": "#c084fc",
+      "transition": "0.3s ease"
+    },
+    "animations": {
+      "transitions": {
+        "default": "all 0.2s ease-in-out",
+        "hover": "all 0.15s ease-in-out"
+      },
+      "elements": {
+        "fadeIn": {
+          "duration": "0.4s",
+          "timingFunction": "ease-in",
+          "initial": {
+            "opacity": 0
+          },
+          "final": {
+            "opacity": 1
+          }
+        },
+        "buttonClick": {
+          "scale": "0.98",
+          "duration": "0.1s"
+        }
+      }
+    },
+    "icons": {
+      "style": "line art",
+      "color": "#ffffff",
+      "hoverColor": "#c084fc",
+      "size": "20px"
+    },
+    "cards": {
+      "background": "#111111",
+      "borderRadius": "12px",
+      "boxShadow": "0 0 0 1px #222222",
+      "padding": "16px"
+    },
+    "branding": {
+      "logo": "white monochrome cat with bandage",
+      "alignment": "centered",
+      "emotion": "playful / relaxed"
+    },
+    "footer": {
+      "textColor": "#666666",
+      "fontSize": "12px",
+      "padding": "12px",
+      "alignment": "center"
+    }
+  }
