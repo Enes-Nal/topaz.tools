@@ -184,7 +184,7 @@ export function UrlInput() {
     <div className="space-y-3">
       <div className="relative">
         {/* Link icon or loading spinner */}
-        <span className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-secondary flex items-center justify-center">
+        <span className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-light-secondary dark:text-secondary flex items-center justify-center">
           {isDownloading ? (
             <Loader2 className="w-5 h-5 animate-spin" />
           ) : (
@@ -197,11 +197,11 @@ export function UrlInput() {
           onChange={(e) => setUrl(e.target.value)}
           onKeyDown={async (e) => { if (e.key === 'Enter') await handleSubmit(url); }}
           placeholder="paste the link here"
-          className="w-full bg-input text-foreground rounded-xl pl-10 pr-12 py-3 border-2 border-transparent focus:border-pastel-blue focus:outline-none transition-colors"
+          className="w-full bg-light-input dark:bg-input text-light-foreground dark:text-foreground rounded-xl pl-10 pr-12 py-3 border-2 border-transparent focus:border-pastel-blue focus:outline-none transition-colors"
           disabled={isLoading}
         />
         <button
-          className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-lg hover:bg-hover transition-colors"
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-lg hover:bg-light-hover dark:hover:bg-hover transition-colors"
           onClick={() => handleSubmit(url)}
           disabled={isLoading}
           aria-label="Download"
@@ -210,7 +210,7 @@ export function UrlInput() {
         </button>
       </div>
       <div className="flex flex-row items-center gap-2 w-full">
-        <div className="flex items-center bg-input p-1 rounded-xl">
+        <div className="flex items-center bg-light-input dark:bg-input p-1 rounded-xl">
           {(['auto', 'audio', 'mute'] as DownloadType[]).map((type) => (
             <button
               key={type}
@@ -218,8 +218,8 @@ export function UrlInput() {
               className={cn(
                 'flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium transition-colors border-2',
                 downloadType === type
-                  ? 'bg-pastel-blue/20 border-pastel-blue text-foreground shadow-sm'
-                  : 'border-transparent text-secondary hover:text-foreground'
+                  ? 'bg-pastel-blue/20 border-pastel-blue text-light-foreground dark:text-foreground shadow-sm'
+                  : 'border-transparent text-light-secondary dark:text-secondary hover:text-light-foreground dark:hover:text-foreground'
               )}
             >
               {type === 'auto' && <Sparkles className="w-4 h-4 text-yellow-400" />}
@@ -235,7 +235,7 @@ export function UrlInput() {
             <select
               value={quality}
               onChange={(e) => handleQualityChange(e.target.value)}
-              className="w-full bg-input border-2 border-pastel-blue rounded-lg px-3 py-2 text-foreground text-sm transition-colors focus:outline-none"
+              className="w-full bg-light-input dark:bg-input border-2 border-pastel-blue rounded-lg px-3 py-2 text-light-foreground dark:text-foreground text-sm transition-colors focus:outline-none"
               disabled={isLoading}
             >
               {availableQualities.map((q) => (
@@ -249,7 +249,7 @@ export function UrlInput() {
           <select
             value={downloadType === 'audio' ? 'mp3' : fileType}
             onChange={(e) => handleFileTypeChange(e.target.value)}
-            className="w-full bg-input border-2 border-pastel-blue rounded-lg px-3 py-2 text-foreground text-sm transition-colors focus:outline-none"
+            className="w-full bg-light-input dark:bg-input border-2 border-pastel-blue rounded-lg px-3 py-2 text-light-foreground dark:text-foreground text-sm transition-colors focus:outline-none"
             disabled={isLoading || downloadType === 'audio'}
           >
             {fileTypes.map((f) => (
@@ -261,7 +261,7 @@ export function UrlInput() {
         <button
           onClick={handlePaste}
           disabled={isLoading}
-          className="flex items-center gap-2 px-4 py-2 bg-input rounded-xl text-foreground font-medium hover:bg-hover transition-colors disabled:opacity-50 ml-2"
+          className="flex items-center gap-2 px-4 py-2 bg-light-input dark:bg-input rounded-xl text-light-foreground dark:text-foreground font-medium hover:bg-light-hover dark:hover:bg-hover transition-colors disabled:opacity-50 ml-2"
         >
           <ClipboardPaste className="w-5 h-5" />
           <span>Paste</span>

@@ -48,7 +48,7 @@ export function DownloadProgress() {
 
   return (
     <div className="space-y-2 pt-2">
-      <div className="w-full bg-input rounded-full h-2.5 overflow-hidden">
+      <div className="w-full bg-light-input dark:bg-input rounded-full h-2.5 overflow-hidden">
         <div
           className={cn(
             'h-2.5 rounded-full transition-all duration-500 ease-linear',
@@ -57,7 +57,7 @@ export function DownloadProgress() {
           style={{ width: `${downloadStatus === 'error' ? 100 : progress}%` }}
         />
       </div>
-      <p className="text-center text-sm text-secondary">{getStatusText()}</p>
+      <p className="text-center text-sm text-light-secondary dark:text-secondary">{getStatusText()}</p>
     </div>
   );
 }

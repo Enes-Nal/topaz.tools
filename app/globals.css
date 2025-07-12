@@ -7,12 +7,12 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-light-border dark:border-border;
     font-family: 'IBM Plex Mono', monospace;
   }
 
   body {
-    @apply bg-background text-foreground font-mono;
+    @apply bg-light-background text-light-foreground dark:bg-background dark:text-foreground font-mono;
     font-feature-settings: "rlig" 1, "calt" 1;
     font-family: 'IBM Plex Mono', monospace;
   }
@@ -28,15 +28,15 @@
   }
 
   .btn-secondary {
-    @apply bg-transparent border border-foreground text-foreground px-4 py-2 rounded-md font-semibold transition-all duration-200 hover:bg-hover;
+    @apply bg-transparent border border-light-foreground text-light-foreground dark:border-foreground dark:text-foreground px-4 py-2 rounded-md font-semibold transition-all duration-200 hover:bg-light-hover dark:hover:bg-hover;
   }
 
   .input-field {
-    @apply bg-input text-foreground rounded-sm px-3 py-2 placeholder-secondary focus:outline-none focus:border-accent focus:border;
+    @apply bg-light-input text-light-foreground dark:bg-input dark:text-foreground rounded-sm px-3 py-2 placeholder-light-secondary dark:placeholder-secondary focus:outline-none focus:border-accent focus:border;
   }
 
   .card {
-    @apply bg-card rounded-lg shadow-card p-4;
+    @apply bg-light-card dark:bg-card rounded-lg shadow-light-card dark:shadow-card p-4;
   }
 }
 

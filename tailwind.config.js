@@ -5,9 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
+        // Dark theme colors
         background: '#000000',
         foreground: '#ffffff',
         secondary: '#999999',
@@ -19,6 +21,17 @@ module.exports = {
         input: '#1a1a1a',
         sidebar: '#0d0d0d',
         sidebarBorder: '#1e1e1e',
+
+        // Light theme colors - much darker for better readability
+        'light-background': '#e5e7eb',
+        'light-foreground': '#111827',
+        'light-secondary': '#374151',
+        'light-hover': '#d1d5db',
+        'light-border': '#9ca3af',
+        'light-card': '#f3f4f6',
+        'light-input': '#ffffff',
+        'light-sidebar': '#e5e7eb',
+        'light-sidebar-border': '#d1d5db',
       },
       fontFamily: {
         mono: ['IBM Plex Mono', 'monospace'],
@@ -44,6 +57,7 @@ module.exports = {
       },
       boxShadow: {
         'card': '0 0 0 1px #222222',
+        'light-card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
       },
     },
   },

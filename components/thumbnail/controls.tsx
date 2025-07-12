@@ -9,7 +9,7 @@ const RED = 'text-red-500';
 
 const InputField = ({ label, value, onChange, type = "text", icon }) => (
   <div className="flex flex-col gap-1.5 items-center w-full">
-    <label className="text-sm font-medium text-gray-600 dark:text-[#b3b8c5] flex items-center gap-1 justify-center">
+    <label className="text-sm font-medium text-light-secondary dark:text-[#b3b8c5] flex items-center gap-1 justify-center">
       {icon && <span className={RED}>{icon}</span>}
       {label}
     </label>
@@ -17,21 +17,21 @@ const InputField = ({ label, value, onChange, type = "text", icon }) => (
       type={type}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="bg-white dark:bg-[#23232a] border border-gray-300 dark:border-[#23232a] rounded-lg px-3 py-2 text-gray-800 dark:text-[#e5e7eb] font-mono text-sm focus:border-red-500 focus:outline-none w-full max-w-xs text-center"
+      className="bg-light-input dark:bg-[#23232a] border border-light-border dark:border-[#23232a] rounded-lg px-3 py-2 text-light-foreground dark:text-[#e5e7eb] font-mono text-sm focus:border-red-500 focus:outline-none w-full max-w-xs text-center"
     />
   </div>
 );
 
 const ToggleField = ({ label, checked, onChange, icon }) => (
   <div className="flex flex-col gap-1.5 items-center w-full">
-    <label className="text-sm font-medium text-gray-600 dark:text-[#b3b8c5] flex items-center gap-1 justify-center">
+    <label className="text-sm font-medium text-light-secondary dark:text-[#b3b8c5] flex items-center gap-1 justify-center">
       {icon && <span className={RED}>{icon}</span>}
       {label}
     </label>
     <button
       onClick={() => onChange(!checked)}
       className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-        checked ? 'bg-red-500' : 'bg-gray-300 dark:bg-gray-600'
+        checked ? 'bg-red-500' : 'bg-light-border dark:bg-gray-600'
       }`}
     >
       <span
@@ -59,7 +59,7 @@ function DropzoneInput({ onFileSelect }) {
   return (
     <div {...getRootProps()} className={`
       border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors
-      text-gray-500 dark:text-gray-400
+      text-light-secondary dark:text-gray-400
       border-red-400 dark:border-red-600
       hover:border-red-500 hover:text-red-500
       dark:hover:border-red-400 dark:hover:text-red-400
@@ -122,12 +122,12 @@ function CompareControls() {
           <Plus size={16} /> Add
         </button>
       </div>
-      <div className="flex flex-wrap gap-2 border-b border-gray-200 dark:border-[#23232a] pb-4 w-full justify-center">
+      <div className="flex flex-wrap gap-2 border-b border-light-border dark:border-[#23232a] pb-4 w-full justify-center">
         {allThumbnails.map((thumb, index) => (
           <button
             key={thumb.id}
             onClick={() => actions.setActiveThumbnailId(thumb.id)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-md ${activeId === thumb.id ? 'bg-red-500 text-white' : 'bg-gray-200 dark:bg-[#23232a] text-gray-700 dark:text-gray-300'}`}
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-md ${activeId === thumb.id ? 'bg-red-500 text-white' : 'bg-light-hover dark:bg-[#23232a] text-light-foreground dark:text-gray-300'}`}
           >
             <span>Variation {index + 1}</span>
             {allThumbnails.length > 1 && (
@@ -157,11 +157,11 @@ function ControlInputs({ data, setters }) {
         <h3 className={`text-base font-semibold ${RED} flex items-center gap-2 mb-2 justify-center`}><TextIcon size={18} className={RED} /> Text Content</h3>
         <InputField label="Video Title" value={data.title} onChange={setters.setTitle} icon={<FileText size={14} className={RED} />} />
         <div className="flex flex-col gap-1.5 items-center w-full">
-          <label className="text-sm font-medium text-gray-600 dark:text-[#b3b8c5] flex items-center gap-1 justify-center"><FileText size={14} className={RED} /> Description</label>
+          <label className="text-sm font-medium text-light-secondary dark:text-[#b3b8c5] flex items-center gap-1 justify-center"><FileText size={14} className={RED} /> Description</label>
           <textarea
             value={data.description}
             onChange={(e) => setters.setDescription(e.target.value)}
-            className="bg-white dark:bg-[#23232a] border border-gray-300 dark:border-[#23232a] rounded-lg px-3 py-2 text-gray-800 dark:text-[#e5e7eb] font-mono text-sm focus:border-red-500 focus:outline-none h-24 resize-none w-full max-w-xs text-center"
+            className="bg-light-input dark:bg-[#23232a] border border-light-border dark:border-[#23232a] rounded-lg px-3 py-2 text-light-foreground dark:text-[#e5e7eb] font-mono text-sm focus:border-red-500 focus:outline-none h-24 resize-none w-full max-w-xs text-center"
           />
         </div>
         <InputField label="Channel Username" value={data.username} onChange={setters.setUsername} icon={<User size={14} className={RED} />} />

@@ -30,7 +30,7 @@ const ModeButton = ({ mode, currentMode, setMode, children }) => {
       className={`px-4 py-2 text-sm font-semibold rounded-lg transition-colors ${
         isActive
           ? 'bg-pastel-blue text-gray-900'
-          : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-[#23232a] dark:text-[#e5e7eb] dark:hover:bg-[#33333a]'
+          : 'bg-light-hover text-light-foreground hover:bg-light-border dark:bg-[#23232a] dark:text-[#e5e7eb] dark:hover:bg-[#33333a]'
       }`}
     >
       {children}
@@ -140,7 +140,7 @@ export function ThumbnailPreview() {
   return (
     <div className="font-roboto !font-roboto">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-[#e5e7eb]">{titles[previewMode]}</h2>
+        <h2 className="text-lg font-semibold text-light-foreground dark:text-[#e5e7eb]">{titles[previewMode]}</h2>
         <div className="flex items-center gap-4">
           <div className="flex gap-2">
             <ModeButton mode="home" currentMode={previewMode} setMode={setPreviewMode}>Home</ModeButton>
@@ -148,7 +148,7 @@ export function ThumbnailPreview() {
             <ModeButton mode="search" currentMode={previewMode} setMode={setPreviewMode}>Search</ModeButton>
             <ModeButton mode="compare" currentMode={previewMode} setMode={setPreviewMode}>Compare</ModeButton>
           </div>
-          <button onClick={randomize} className="flex items-center gap-2 bg-gray-200 dark:bg-[#23232a] text-gray-700 dark:text-white font-semibold px-4 py-2 rounded-lg text-sm hover:bg-gray-300 dark:hover:bg-[#33333a] transition-colors">
+          <button onClick={randomize} className="flex items-center gap-2 bg-light-hover dark:bg-[#23232a] text-light-foreground dark:text-white font-semibold px-4 py-2 rounded-lg text-sm hover:bg-light-border dark:hover:bg-[#33333a] transition-colors">
             <Shuffle size={16} />
           </button>
           <button onClick={handleExport} className="flex items-center gap-2 bg-pastel-blue text-black font-semibold px-4 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
