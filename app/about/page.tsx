@@ -3,16 +3,18 @@
 import { useState } from 'react';
 import { FileText, Shield, Heart, Code, Users, Zap } from 'lucide-react';
 
+type SectionId = 'terms' | 'privacy' | 'support' | 'developers' | 'community' | 'changelog';
+
 const aboutSections = [
-  { id: 'terms', label: 'terms of service', icon: FileText },
-  { id: 'privacy', label: 'privacy policy', icon: Shield },
-  { id: 'support', label: 'support', icon: Heart },
-  { id: 'developers', label: 'developers', icon: Code },
-  { id: 'community', label: 'community', icon: Users },
-  { id: 'changelog', label: 'changelog', icon: Zap },
+  { id: 'terms' as SectionId, label: 'terms of service', icon: FileText },
+  { id: 'privacy' as SectionId, label: 'privacy policy', icon: Shield },
+  { id: 'support' as SectionId, label: 'support', icon: Heart },
+  { id: 'developers' as SectionId, label: 'developers', icon: Code },
+  { id: 'community' as SectionId, label: 'community', icon: Users },
+  { id: 'changelog' as SectionId, label: 'changelog', icon: Zap },
 ];
 
-const contentMap = {
+const contentMap: Record<SectionId, JSX.Element> = {
   terms: (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold">terms of service</h2>
@@ -162,7 +164,7 @@ const contentMap = {
 };
 
 export default function AboutPage() {
-  const [activeSection, setActiveSection] = useState('terms');
+  const [activeSection, setActiveSection] = useState<SectionId>('terms');
 
   return (
     <div className="flex min-h-screen bg-light-background dark:bg-[#101012] text-light-foreground dark:text-[#e5e7eb] font-mono">
@@ -186,7 +188,7 @@ export default function AboutPage() {
 
       {/* Main Content */}
       <main className="flex-1 pt-12 px-12 overflow-y-auto">
-        {contentMap[activeSection]}
+        {contentMap[activeSection as SectionId]}
       </main>
     </div>
   );
