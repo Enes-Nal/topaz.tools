@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FileText, Shield, Heart, Code, Users, Zap } from 'lucide-react';
+import { FileText, Shield, Heart, Code, Users, Zap, Menu, X } from 'lucide-react';
 
 type SectionId = 'terms' | 'privacy' | 'support' | 'developers' | 'community' | 'changelog';
 
@@ -165,17 +165,29 @@ const contentMap: Record<SectionId, JSX.Element> = {
 
 export default function AboutPage() {
   const [activeSection, setActiveSection] = useState<SectionId>('terms');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="flex min-h-screen bg-light-background dark:bg-[#101012] text-light-foreground dark:text-[#e5e7eb] font-mono">
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-light-sidebar dark:bg-[#18181b] rounded-lg border border-light-sidebar-border dark:border-[#23232a]"
+      >
+        {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+      </button>
+
       {/* About Sidebar */}
-      <aside className="w-64 bg-light-sidebar dark:bg-[#18181b] border-r border-light-sidebar-border dark:border-[#23232a] flex flex-col pt-12 px-4">
+      <aside className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:relative inset-y-0 left-0 w-64 bg-light-sidebar dark:bg-[#18181b] border-r border-light-sidebar-border dark:border-[#23232a] flex flex-col pt-12 px-4 z-40 transition-transform duration-300 ease-in-out`}>
         <h1 className="text-2xl font-bold mb-8 px-2">about</h1>
         <div className="flex flex-col gap-1">
           {aboutSections.map(section => (
             <button
               key={section.id}
-              onClick={() => setActiveSection(section.id)}
+              onClick={() => {
+                setActiveSection(section.id);
+                setSidebarOpen(false); // Close sidebar on mobile after selection
+              }}
               className={`flex items-center gap-3 px-4 py-2 rounded-lg font-bold text-base transition-colors w-full text-left
                 ${activeSection === section.id ? 'bg-pastel-blue/20 text-pastel-blue' : 'text-light-secondary dark:text-[#b3b8c5] hover:bg-pastel-blue/10 hover:text-pastel-blue'}`}
             >
@@ -187,7 +199,7 @@ export default function AboutPage() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 pt-12 px-12 overflow-y-auto">
+      <main className="flex-1 pt-12 md:pt-12 px-4 md:px-12 overflow-y-auto">
         {contentMap[activeSection as SectionId]}
       </main>
     </div>

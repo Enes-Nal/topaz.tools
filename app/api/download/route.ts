@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     const { url, format, outputFormat, audioOnly, videoOnly } = downloadRequestSchema.parse(body);
 
     // Ensure downloads directory exists and is writable
-    const downloadsDir = join(process.cwd(), 'downloads');
+    const downloadsDir = '/tmp/downloads';
     if (!existsSync(downloadsDir)) {
       await mkdir(downloadsDir, { recursive: true });
     }
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Set output template with sanitized title
-    const outputTemplate = `downloads/${videoTitle}.%(ext)s`;
+    const outputTemplate = `/tmp/downloads/${videoTitle}.%(ext)s`;
 
     // Build yt-dlp command based on options
     let command = 'yt-dlp --no-part --force-overwrites';

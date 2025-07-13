@@ -209,14 +209,14 @@ export function UrlInput() {
           <ArrowRight className="w-6 h-6 text-pastel-blue" />
         </button>
       </div>
-      <div className="flex flex-row items-center gap-2 w-full">
-        <div className="flex items-center bg-light-input dark:bg-input p-1 rounded-xl">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full">
+        <div className="flex items-center bg-light-input dark:bg-input p-1 rounded-xl w-full sm:w-auto">
           {(['auto', 'audio', 'mute'] as DownloadType[]).map((type) => (
             <button
               key={type}
               onClick={() => handleTypeChange(type)}
               className={cn(
-                'flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium transition-colors border-2',
+                'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-lg text-sm font-medium transition-colors border-2 flex-1 sm:flex-none',
                 downloadType === type
                   ? 'bg-pastel-blue/20 border-pastel-blue text-light-foreground dark:text-foreground shadow-sm'
                   : 'border-transparent text-light-secondary dark:text-secondary hover:text-light-foreground dark:hover:text-foreground'
@@ -225,13 +225,13 @@ export function UrlInput() {
               {type === 'auto' && <Sparkles className="w-4 h-4 text-yellow-400" />}
               {type === 'audio' && <Music className="w-4 h-4 text-accent" />}
               {type === 'mute' && <VolumeX className="w-4 h-4 text-gray-500" />}
-              <span>{type}</span>
+              <span className="hidden sm:inline">{type}</span>
             </button>
           ))}
         </div>
         {/* Quality Dropdown - hide for TikTok */}
         {!isTikTok && (
-          <div className="flex-1 min-w-[90px]">
+          <div className="flex-1 min-w-[90px] w-full sm:w-auto">
             <select
               value={quality}
               onChange={(e) => handleQualityChange(e.target.value)}
@@ -245,7 +245,7 @@ export function UrlInput() {
           </div>
         )}
         {/* File Type Dropdown */}
-        <div className="flex-1 min-w-[90px]">
+        <div className="flex-1 min-w-[90px] w-full sm:w-auto">
           <select
             value={downloadType === 'audio' ? 'mp3' : fileType}
             onChange={(e) => handleFileTypeChange(e.target.value)}
@@ -261,7 +261,7 @@ export function UrlInput() {
         <button
           onClick={handlePaste}
           disabled={isLoading}
-          className="flex items-center gap-2 px-4 py-2 bg-light-input dark:bg-input rounded-xl text-light-foreground dark:text-foreground font-medium hover:bg-light-hover dark:hover:bg-hover transition-colors disabled:opacity-50 ml-2"
+          className="flex items-center gap-2 px-4 py-2 bg-light-input dark:bg-input rounded-xl text-light-foreground dark:text-foreground font-medium hover:bg-light-hover dark:hover:bg-hover transition-colors disabled:opacity-50 w-full sm:w-auto sm:ml-2"
         >
           <ClipboardPaste className="w-5 h-5" />
           <span>Paste</span>
